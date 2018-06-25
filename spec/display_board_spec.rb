@@ -1,45 +1,12 @@
-require_relative '../lib/display_board'
+board = ["X", " ", " ", " ", " ", "O ", " ", " ", " "]
 
-describe '/lib/display_board.rb' do
-  it 'defines a method display_board' do
-    expect(defined?(display_board)).to be_truthy
-  end
-
-  context "#display_board method" do
-    it 'represents a cell as a string with 3 spaces' do
-      output = capture_puts{ display_board }
-
-      expect(output).to include("   ")
-    end
-    
-    it 'separates cells with a | character' do
-      output = capture_puts{ display_board }
-
-      expect(output).to include("   |   ")      
-    end
-
-    it 'prints an 3 cell row' do
-      output = capture_puts{ display_board }
-
-      expect(output).to include("   |   |  ")
-    end
-
-    it 'separates rows with a line of 11 -' do
-      output = capture_puts{ display_board }
-
-      expect(output).to include("-----------")
-    end
-
-    it 'prints a 3x3 tic tac toe board' do
-      output = capture_puts{ display_board }
-
-      expected_output  = "   |   |   \n"
-      expected_output += "-----------\n"
-      expected_output += "   |   |   \n"
-      expected_output += "-----------\n"
-      expected_output += "   |   |   \n"
-
-      expect(output).to eq(expected_output)
-    end
-  end
+def display_board(board)
+  board = ["X", " ", " ", " ", " ", "O ", " ", " ", " "]
+  puts " #{board[0]}  |#{board[1]}  | #{board[2]}  "
+  puts "-----------"
+  puts " #{board[3]} | #{board[4]}  | #{board[5]}  "
+  puts "-----------"
+  puts " #{board[6]} | #{board[7]}  | #{board[7]}  "
 end
+
+display_board(board)
